@@ -1,0 +1,17 @@
+.Page {
+	display: flex;
+	flex-direction: column;
+
+	min-height: 100vh;
+	.Page__header {
+		flex: 0 0 auto;
+	}
+
+	.Page__main {
+		flex: 1 0 auto;
+	}
+
+	.Page__footer {
+		flex: 0 0 auto;
+	}
+}

@@ -1,0 +1,92 @@
+/// Тут миксины для адаптации сайта под разные разрешения
+
+$layout-xs: 375;
+$layout-sm: 768;
+$layout-md: 1024;
+$layout-lg: 1280;
+$layout-xl: 1920;
+
+$xs: 735; // 375
+$sm: 1000; // 768
+$md: 1260; // 1024
+$lg: 1550; // 1280
+$xl: 1920; // 1920
+
+$screen-xs: #{$xs + px}; // 375
+$screen-sm: #{$sm + px}; // 768
+$screen-md: #{$md + px}; // 1024
+$screen-lg: #{$lg + px}; // 1280
+$screen-xl: #{$xl + px}; // 1920
+
+@mixin xs {
+	@media (max-width: #{$screen-xs}) {
+		@content;
+	}
+}
+
+// ##u - все больше ##
+@mixin xsu {
+	@media (min-width: #{$screen-xs}) {
+		@content;
+	}
+}
+
+@mixin oxs {
+	@include xs {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (max-width: #{$screen-sm}) {
+		@content;
+	}
+}
+
+@mixin smu {
+	@media (min-width: #{$screen-sm}) {
+		@content;
+	}
+}
+
+@mixin osm {
+	@media (max-width: #{$screen-sm}) and (min-width: #{$xs + 1 + px}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: #{$screen-md}) {
+		@content;
+	}
+}
+
+@mixin omd {
+	@media (max-width: #{$screen-md}) and (min-width: #{$sm + 1 + px}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (max-width: #{$screen-lg}) {
+		@content;
+	}
+}
+
+@mixin olg {
+	@media (max-width: #{$screen-lg}) and (min-width: #{$md + 1 + px}) {
+		@content;
+	}
+}
+
+@mixin xl { //
+	@media (max-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+@mixin oxl {
+	@media (max-width: #{$screen-xl}) and (min-width: #{$lg + 1 + px}) {
+		@content;
+	}
+}

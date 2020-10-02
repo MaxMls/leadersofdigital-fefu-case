@@ -1,0 +1,66 @@
+@import "reset";
+@import "resolution";
+
+// в этом файле устанавливаются глобальные стили, переменные и миксины для всего сайта,
+
+// пример анимация:
+@keyframes fadeOn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeUp {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+//
+
+
+// переменные ширины контейнера
+$xlContent: 1400px;
+$lgContent: 1159px;
+$mdContent: 964px;
+$smContent: 690px;
+$xsContent: 335px;
+
+
+@mixin content {
+	width: $xlContent;
+	margin: 0 auto;
+	max-width: 100%;
+
+	@include lg {
+		width: $lgContent;
+	}
+
+	@include md {
+		width: $mdContent;
+
+	}
+
+	@include sm {
+		width: $smContent;
+
+	}
+
+	@include xs {
+		width: $xsContent;
+
+	}
+}
+
+
+
+
+
+// их можно использовать в любоб из файлов стилей сайта, т.к они импортируются в конце этого файла
+@import "../components/z-styles-import";
+@import "../components/z-styles-import";
