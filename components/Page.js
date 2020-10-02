@@ -3,12 +3,13 @@ import Head from 'next/head'
 import Header from "./Header";
 import Footer from "./Footer";
 
+// Обертка страницы включающая Header, Footer и тег head
 
 export default function Page({children, pageTitle, className}) {
 
 	return <>
 		<Head>
-			<title>{pageTitle && `${pageTitle} - `} Мультиснаб</title>
+			<title>{pageTitle && `${pageTitle} - `} Название сайта</title>
 			<link rel="icon" href={"/favicon.ico"}/>
 			<meta
 				name="viewport"

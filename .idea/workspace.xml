@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="React Component" />
         <option value="React Style" />
+        <option value="React Component" />
       </list>
     </option>
   </component>
@@ -84,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601599347376</updated>
-      <workItem from="1601599348505" duration="2450000" />
+      <workItem from="1601599348505" duration="3671000" />
     </task>
     <servers />
   </component>

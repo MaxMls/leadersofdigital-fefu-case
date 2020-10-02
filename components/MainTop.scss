@@ -1,4 +1,17 @@
 .MainTop {
+	//  стили для компонента MainTop
+	//  и дочерних компонентов, при необходимости
+
 	@include content; // сюда подставляются стили миксина
 
+
+	.MainTop__title{
+		font-size: 19px;
+	}
+
+	.MainTop__link{
+		color: blue;
+		text-decoration: underline;
+
+	}
 }
