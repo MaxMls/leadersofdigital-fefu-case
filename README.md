@@ -1,8 +1,7 @@
 ## Установка и запуск
-0. git
-1. nodejs 12
-2. npm
-3. next cli:
+1. git (https://git-scm.com/)
+2. nodejs 14 + npm (https://nodejs.org/en/download/current/)  
+3. установка next cli (далее команды в косноли):
   npm i react -g
   npm i react-dom -g
   npx next -h
@@ -10,4 +9,5 @@
 5. cd leadersofdigital-fefu-case
 6. npm i
 7. npm run dev
+
 8. перейдите по адресу http://localhost:3000/
