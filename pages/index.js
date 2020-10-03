@@ -1,12 +1,12 @@
 import React from "react";
 import Page from "../components/Page";
 import Link from "next/link";
+import Main from './textBlock/Main'
 
 // Главная страница сайта
 export default function index() {
 	return (
 		<Page className='index' pageTitle='Главная'>
-
 			<div
 				className='MainTop'
 				//  этот компонент не выделен в отдельный файл,
@@ -16,16 +16,9 @@ export default function index() {
 				//  можно вынести MainTop в отдельный файл: /components/MainTop.js
 			>
 				<div className='MainTop__title'>
-					Главная страница
+					<Main title="Руководство к макету"/>
 				</div>
-
-				<Link href={'/testPage'} >
-					<a  className='MainTop__link'>
-						Перейти на другую страницу
-					</a>
-				</Link>
 			</div>
-
 		</Page>
 	)
 }
