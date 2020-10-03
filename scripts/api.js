@@ -1,12 +1,20 @@
 import axios from 'axios';
 
-const apiPath = process.env.apiPath || 'http://localhost:3000/api/'
+
+let apiPath = process.env.NEXT_PUBLIC_API_PATH || 'http://localhost:3000/api/'
+//const apiPath = 'https://leadersofdigital-fefu-case.vercel.app/api/'
+
+if (typeof window === 'undefined') {
+	apiPath = 'https://leadersofdigital-fefu-case.vercel.app/api/'
+} else {
+	let apiPath = '/api/'
+}
 
 const queryQueue = []
 
 const apiCall = ({url, data = {}, method, headers = {}}) =>
 	new Promise(async (resolve, reject) => {
-		 console.log('apiCall', url);
+		console.log('apiCall', url);
 
 		const appendData = {};
 		if (data !== undefined) appendData[method === 'get' ? 'params' : 'data'] = data;
