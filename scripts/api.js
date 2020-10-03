@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiPath = 'http://localhost:3000/api/'
+const apiPath = process.env.apiPath || 'http://localhost:3000/api/'
 
 const queryQueue = []
 
