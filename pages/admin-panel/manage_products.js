@@ -1,25 +1,15 @@
 import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import {Button, Grid} from "@material-ui/core";
-import {DropzoneDialog} from "material-ui-dropzone";
-import TextField from "@material-ui/core/TextField";
+import {Button} from "@material-ui/core";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import Paper from "@material-ui/core/Paper";
 import TableBody from "@material-ui/core/TableBody";
 import apiCall from "../../scripts/api";
-import {toBase64} from "../../scripts/functions";
 import Row from "../../components/Row";
-
+import Link from "next/link";
 
 
 export async function getServerSideProps(context) {
@@ -32,6 +22,12 @@ export async function getServerSideProps(context) {
 export default function CollapsibleTable({jsonData}) {
 
 	const [data, setData] = useState(JSON.parse(jsonData))
+
+	async function updateTable(){
+		const {data} = await apiCall({url: "stores", method: "get"})
+
+		setData({data})
+	}
 
 	return (
 		<TableContainer component={Paper}>
@@ -46,7 +42,18 @@ export default function CollapsibleTable({jsonData}) {
 				</TableHead>
 				<TableBody>
 					{data.stores.map((obj, i) => (
-						<Row key={i} attr={data.stores_attr} obj={obj}/>
+						<Row onChange={updateTable} key={i} attr={data.stores_attr} obj={obj}>
+							<Link href={'/admin-panel/manage_products/' + obj._id}>
+								<a>
+									<Button
+										style={{marginLeft:10}}
+										variant="contained"
+									        color="primary">
+										Перейти на страницу товаров магазина
+									</Button>
+								</a>
+							</Link>
+						</Row>
 					))}
 					<TableRow>
 						<TableCell colSpan={data.stores_attr.length + 1}>

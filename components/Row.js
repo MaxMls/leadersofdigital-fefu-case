@@ -23,7 +23,7 @@ const useRowStyles = makeStyles({
 	},
 });
 
-export default function Row({attr, obj}) {
+export default function Row({attr, obj, children, onChange, addData={},apiPath='stores'}) {
 	const [open, setOpen] = React.useState(false);
 	const classes = useRowStyles();
 
@@ -74,7 +74,7 @@ export default function Row({attr, obj}) {
 													}}
 													     src={states[name].value}/>
 													<Button
-														style={{display: 'inline-block', marginLeft: '40px'}}
+														style={{display: 'inline-block', margin: '0 40px'}}
 														color="primary"
 														onClick={() => setOpen(true)}>
 														Загрузить изображение
@@ -119,11 +119,12 @@ export default function Row({attr, obj}) {
 											e.preventDefault()
 
 											await apiCall({
-												url: 'stores',
+												url: apiPath,
 												method: 'POST',
 												data: {
 													_id: obj._id,
 													...Object.fromEntries(attr.map(({name}) => ([name, states[name].value]))),
+													...addData
 												}
 											})
 										}}>
@@ -135,15 +136,17 @@ export default function Row({attr, obj}) {
 										onClick={async (e) => {
 											e.preventDefault()
 											await apiCall({
-												url: 'stores',
+												url: apiPath,
 												method: 'DELETE',
 												data: {
 													_id: obj._id,
 												}
 											})
+											await onChange()
 										}}>
 										Удалить
 									</Button>
+									{children}
 								</Grid>
 							</Grid>
 						</Box>

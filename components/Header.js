@@ -12,14 +12,15 @@ export default function Header() {
 		<Toolbar className='Toolbar'>
 			<Button size="small" href="/shops/listOfShops">Магазины</Button>
 			<Button size="small" href="/shopItems">Товары</Button>
-			<Typography
-			component="h2"
-			variant="h5"
+			<Button
+			size="large"
 			color="inherit"
 			align="center"
 			noWrap
 			className='ToolbarTitle'
-			> FEFUDelivery </Typography>
+			href="/">
+			FEFUDelivery
+			</Button>
 			<Button size="small" href="/shopItems">Заказчик</Button>
 			<Button size="small" href="/shopItems">Исполнитель</Button>
 		</Toolbar>
