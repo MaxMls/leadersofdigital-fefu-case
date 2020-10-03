@@ -64,7 +64,7 @@ export default function listOfShops() {
                     title={store.name}
                   />
                   <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom align="center" variant="h5" component="h2">
                       {store.name}
                     </Typography>
                   </CardContent>

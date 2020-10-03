@@ -27,7 +27,7 @@ export default function Page({children, pageTitle, className}) {
 			</main>
 
 			<footer className='Page__footer'>
-				<Footer/>
+				<Footer title="FEFU" description="Описание"/>
 			</footer>
 		</div>
 	</>

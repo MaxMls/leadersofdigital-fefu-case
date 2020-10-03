@@ -2,4 +2,9 @@
 
 	//  стили для компонента Footer
 	//  и дочерних компонентов, при необходимости
+	.footer {
+		background-color: transparent;
+		// marginTop: theme.spacing(8),
+		padding: spacing(6, 0);
+	}
 }

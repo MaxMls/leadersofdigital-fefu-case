@@ -1,54 +1,15 @@
-// export default function Header() {
-
-// 	return (
-// 		<div className="Header">
-// 			<Container maxWidth="md">
-// 				<div className={classes.root}>
-// 					<Typography variant="h2" gutterBottom>
-// 					Material UI Demo
-// 					</Typography>
-			
-// 					<Typography variant="p" gutterBottom>
-// 					Hero Component
-// 					</Typography>
-// 				</div>
-// 			</Container>
-// 		</div>
-// 	)
-// }
-
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container'
-import Link from '@material-ui/core/Link';
-
-const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbarTitle: {
-    flex: 1,
-  },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
-  },
-}));
+import Link from '@material-ui/core/Link';	
 
 export default function Header() {
-  const classes = useStyles();
-
   return (
-	<div className="Header">
+	<div className='Header'>
 		<Container maxWidth="lg">
-		<Toolbar className={classes.toolbar}>
+		<Toolbar className='Toolbar'>
 			<Button size="small" href="/shops/listOfShops">Магазины</Button>
 			<Button size="small" href="/shopItems">Товары</Button>
 			<Typography
@@ -57,10 +18,12 @@ export default function Header() {
 			color="inherit"
 			align="center"
 			noWrap
-			className={classes.toolbarTitle}
+			className='ToolbarTitle'
 			>
 				<Link href="/">FEFUDelivery</Link>
 			</Typography>
+			<Button size="small" href="/shopItems">Заказчик</Button>
+			<Button size="small" href="/shopItems">Исполнитель</Button>
 		</Toolbar>
 		</Container>
 	</div>

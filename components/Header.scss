@@ -1,4 +1,17 @@
 .Header {
 	//  стили для компонента Header
 	//  и дочерних компонентов, при необходимости
+	
+	.Toolbar {
+		border-bottom: 1px solid;
+	}
+
+	.ToolbarTitle {
+		flex: 1;
+	}
+
+	.ToolbarSecondary {
+		justify-content: 'space-between';
+		overflow-x: 'auto';
+	}
 }
