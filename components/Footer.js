@@ -26,7 +26,7 @@ export default function Footer(props) {
 	<div className="Footer">  
 		<footer className='footer'>
 			<Container maxWidth="lg" align="center">
-			  <Button color="inherit" size="small" href="/">Оформить заказ</Button>
+			  <Button variant="contained" color="primary" size="small" href="order/Checkout">Оформить заказ</Button>
 				<Typography variant="h6" align="center" gutterBottom>
 				{title}
 				</Typography>
