@@ -14,19 +14,7 @@ const jsonStr = "{\"stories\":[{\"name\":\"\u0421\u0430\u043c\u0431\u0435\u0440\
 const json = JSON.parse(jsonStr)
 const products = json.stories[0].products;
 
-// const useStyles = makeStyles((theme) => ({
-//   card: {
-//     height: 500,
-//     padding: theme.spacing(2)
-//   },
-//   avatar: {
-//     width: theme.spacing(18),
-//     height: theme.spacing(18),
-//   }
-// }))
-
 export default function shopItems() {
-  //const classes = useStyles();
   return (
     <Page pageTitle='Товары'>
       <div className='shopItems'>
@@ -46,7 +34,7 @@ export default function shopItems() {
                         title={product.name}
                       />
                     </Grid>
-                    <CardContent>
+                    <CardContent className='Description'>
                       <Typography gutterBottom align="center" variant="h5">
                         {product.name}
                       </Typography>
@@ -56,8 +44,10 @@ export default function shopItems() {
                         Категория: {product.category}
                       </Typography>
                       <br/>
-                      <Typography gutterBottom align="center" variant="h4">
-                        <strong>{product.cost} руб.</strong>
+                    </CardContent>
+                    <CardContent>
+                      <Typography  gutterBottom align="center" variant="h4">
+                          <strong>{product.cost} руб.</strong>
                       </Typography>
                     </CardContent>
                     <CardActions>
