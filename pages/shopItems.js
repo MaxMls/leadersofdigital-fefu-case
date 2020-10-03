@@ -14,37 +14,34 @@ const jsonStr = "{\"stories\":[{\"name\":\"\u0421\u0430\u043c\u0431\u0435\u0440\
 const json = JSON.parse(jsonStr)
 const products = json.stories[0].products;
 
-const useStyles = makeStyles((theme) => ({
-  card: {
-    height: 500,
-    padding: theme.spacing(2)
-  },
-  image: {
-    alignItems: 'center'
-  },
-  avatar: {
-    width: theme.spacing(18),
-    height: theme.spacing(18),
-  }
-}))
+// const useStyles = makeStyles((theme) => ({
+//   card: {
+//     height: 500,
+//     padding: theme.spacing(2)
+//   },
+//   avatar: {
+//     width: theme.spacing(18),
+//     height: theme.spacing(18),
+//   }
+// }))
 
-export default function listOfShops() {
-  const classes = useStyles();
+export default function shopItems() {
+  //const classes = useStyles();
   return (
-    <Page className='testPage' pageTitle='Товары'>
-      <main>
+    <Page pageTitle='Товары'>
+      <div className='shopItems'>
         <Container maxWidth="md" fixed>
           <Grid container spacing={5}>
             {products.map((product) => (
               <Grid item xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
+                <Card className='Card'>
                     <Grid
                         container
                         alignItems="center"
                         justify="center"
                     >
                       <Avatar
-                        className={classes.avatar}
+                        className='Avatar'
                         src={product.image}
                         title={product.name}
                       />
@@ -76,7 +73,7 @@ export default function listOfShops() {
             ))}
           </Grid>
         </Container>
-      </main>
+      </div>
     </Page>
   );
 }

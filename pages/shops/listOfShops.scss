@@ -1,0 +1,19 @@
+.listOfShops {
+    .Card {
+        height: 500;
+        display: flex;
+        flex-direction: column;
+        background-color: violet;
+    }
+    .CardMedia {
+        padding-top: 56.25%;
+        height: 100;
+    }
+    .CardContent {
+        flex-grow: 1;
+    }
+    .Avatar {
+        width: spacing(10);
+        height: spacing(10);
+    }
+}

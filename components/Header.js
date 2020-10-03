@@ -19,9 +19,7 @@ export default function Header() {
 			align="center"
 			noWrap
 			className='ToolbarTitle'
-			>
-				<Link href="/">FEFUDelivery</Link>
-			</Typography>
+			> FEFUDelivery </Typography>
 			<Button size="small" href="/shopItems">Заказчик</Button>
 			<Button size="small" href="/shopItems">Исполнитель</Button>
 		</Toolbar>
