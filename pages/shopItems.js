@@ -14,6 +14,10 @@ const jsonStr = "{\"stories\":[{\"name\":\"\u0421\u0430\u043c\u0431\u0435\u0440\
 const json = JSON.parse(jsonStr)
 const products = json.stories[0].products;
 
+// const storeId = context.params.id
+// const {data} = await apiCall({url: "products", method: "get", data: {storeId: storeId}})
+// const products = data.products
+
 export default function shopItems() {
   return (
     <Page pageTitle='Товары'>

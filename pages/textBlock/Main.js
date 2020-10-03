@@ -15,16 +15,22 @@ export default function Main(props) {
       </Typography>
       <Divider />
       <Typography variant="h5" gutterBottom>
-        На данном макете можно: 
+        На данном макете можно посмотреть как будет выглядеть: 
       </Typography>
       <Typography variant="h6" gutterBottom>
-        посмотреть как будет выглять список доступных магазинов (Кнопка сверху магазины);
+        список доступных магазинов (Кнопка сверху 'Магазины');
       </Typography>
       <Typography variant="h6" gutterBottom>
-        можно посмотреть как будет выглядеть список товаров (Кнопка сверху товары);
+        список товаров (Кнопка сверху 'Товары');
       </Typography>
       <Typography variant="h6" gutterBottom>
-        посмотреть как будет выглядеть офорление заказа (Кнопка внизу);
+        офорление заказа (Кнопка внизу);
+      </Typography>
+      <Typography variant="h6" gutterBottom>
+        станица исполнителя заказа (Кнопка сверху 'Исполнитель');
+      </Typography>
+      <Typography variant="h6" gutterBottom>
+        станица заказчика (Админ-панель) (Кнопка сверху 'Заказчик').
       </Typography>
     </Grid>
   );

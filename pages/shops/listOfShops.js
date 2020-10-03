@@ -14,6 +14,9 @@ const jsonStr = "{\"stories\":[{\"name\":\"\u0421\u0430\u043c\u0431\u0435\u0440\
 const json = JSON.parse(jsonStr)
 
 export default function listOfShops() {
+  //const {data} = await apiCall({url: "stores", method: "get"})
+  //const json = data
+
   return (
     <Page pageTitle='Магазины'>
       <div className='listOfShops'>
@@ -27,15 +30,7 @@ export default function listOfShops() {
                       alignItems="center"
                       justify="center"
                   >
-                    <CardMedia className='Avatar' component="img" src={store.image}  >
-                    
-                    </CardMedia>
-                    {/* <Avatar
-                      variant="square"
-                      className='Avatar'
-                      src={store.image}
-                      title={store.name}
-                    /> */}
+                    <CardMedia className='Avatar' component="img" src={store.image}  />
                   </Grid>
                   <CardContent className='CardContent'>
                     <Typography gutterBottom align="center" variant="h5" component="h2">
@@ -44,9 +39,6 @@ export default function listOfShops() {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary"> 
-                    {
-                        // TODO Сделать переход на страницу магазина.
-                    }
                       Сделать покупки в {store.name}
                     </Button>
                   </CardActions>

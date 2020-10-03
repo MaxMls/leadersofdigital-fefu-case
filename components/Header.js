@@ -21,8 +21,8 @@ export default function Header() {
 			href="/">
 			FEFUDelivery
 			</Button>
-			<Button size="small" href="/shopItems">Заказчик</Button>
-			<Button size="small" href="/shopItems">Исполнитель</Button>
+			<Button size="small" href="/admin-panel/">Заказчик</Button>
+			<Button size="small" href="/executorMainPage">Исполнитель</Button>
 		</Toolbar>
 		</Container>
 	</div>
