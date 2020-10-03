@@ -1,7 +1,7 @@
 ## Установка и запуск
 1. git (https://git-scm.com/)
 2. nodejs 14 + npm (https://nodejs.org/en/download/current/)  
-3. установка next cli (далее команды в косноли):
+3. установка next cli (далее команды в консоли):
 ```
   npm i react -g
   npm i react-dom -g
