@@ -23,50 +23,52 @@ export default function CollapsibleTable({jsonData}) {
 
 	const [data, setData] = useState(JSON.parse(jsonData))
 
-	async function updateTable(){
+	async function updateTable() {
 		const {data} = await apiCall({url: "stores", method: "get"})
 
-		setData({data})
+		setData(data)
 	}
 
 	return (
-		<TableContainer component={Paper}>
-			<Table aria-label="collapsible table">
-				<TableHead>
-					<TableRow>
-						<TableCell/>
-						{data.stores_attr.map(({value}) =>
-							<TableCell>{value}</TableCell>
-						)}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{data.stores.map((obj, i) => (
-						<Row onChange={updateTable} key={i} attr={data.stores_attr} obj={obj}>
-							<Link href={'/admin-panel/manage_products/' + obj._id}>
-								<a>
-									<Button
-										style={{marginLeft:10}}
-										variant="contained"
-									        color="primary">
-										Перейти на страницу товаров магазина
-									</Button>
-								</a>
-							</Link>
-						</Row>
-					))}
-					<TableRow>
-						<TableCell colSpan={data.stores_attr.length + 1}>
-							<Button
-								fullWidth
-								onClick={() =>
-									setData({...data, stores: [...data.stores, {}]})
-								}
-							>Добавить еще 1</Button>
-						</TableCell>
-					</TableRow>
-				</TableBody>
-			</Table>
-		</TableContainer>
+		<div className='AdminPanel'>
+			<TableContainer component={Paper}>
+				<Table aria-label="collapsible table">
+					<TableHead>
+						<TableRow>
+							<TableCell/>
+							{data.stores_attr.map(({value}) =>
+								<TableCell>{value}</TableCell>
+							)}
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{data.stores.map((obj, i) => (
+							<Row onChange={updateTable} key={i} attr={data.stores_attr} obj={obj}>
+								<Link href={'/admin-panel/manage_products/' + obj._id}>
+									<a>
+										<Button
+											style={{marginLeft: 10}}
+											variant="contained"
+											color="primary">
+											Перейти на страницу товаров магазина
+										</Button>
+									</a>
+								</Link>
+							</Row>
+						))}
+						<TableRow>
+							<TableCell colSpan={data.stores_attr.length + 1}>
+								<Button
+									fullWidth
+									onClick={() =>
+										setData({...data, stores: [...data.stores, {}]})
+									}
+								>Добавить еще 1</Button>
+							</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</div>
 	);
 }

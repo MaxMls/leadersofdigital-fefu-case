@@ -38,21 +38,21 @@ $xsContent: 335px;
 	max-width: 100%;
 
 	@include lg {
-		width: $lgContent;
+		//width: 100%;
 	}
 
 	@include md {
-		width: $mdContent;
+		//width: $mdContent;
 
 	}
 
 	@include sm {
-		width: $smContent;
+	//	width: $smContent;
 
 	}
 
 	@include xs {
-		width: $xsContent;
+	//	width: $xsContent;
 
 	}
 }

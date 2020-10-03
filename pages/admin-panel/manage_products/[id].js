@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import TableBody from "@material-ui/core/TableBody";
 import apiCall from "../../../scripts/api";
 import Row from "../../../components/Row";
+import Link from "next/link";
 
 
 export async function getServerSideProps(context) {
@@ -25,7 +26,19 @@ export default function products({jsonData}) {
 
 	const [data, setData] = useState(JSON.parse(jsonData))
 
-	return (
+
+	return <div className='AdminPanel'>
+		<Link href={'/admin-panel/manage_products'}>
+			<a>
+				<Button
+					style={{margin: 10}}
+					variant="contained"
+					color="primary">
+					Перейти на страницу управления магазинами
+				</Button>
+			</a>
+		</Link>
+
 		<TableContainer component={Paper}>
 			<Table aria-label="collapsible table">
 				<TableHead>
@@ -59,5 +72,6 @@ export default function products({jsonData}) {
 				</TableBody>
 			</Table>
 		</TableContainer>
-	);
+	</div>
+
 }
