@@ -11,7 +11,7 @@ export default function Header() {
 		<Container maxWidth="lg">
 		<Toolbar className='Toolbar'>
 			<Button size="small" href="/shops/listOfShops">Магазины</Button>
-			<Button size="small" href="/shopItems">Товары</Button>
+			<Button size="small" href="/executorMainPage">Для исполнителя</Button>
 			<Button
 			size="large"
 			color="inherit"
@@ -21,8 +21,8 @@ export default function Header() {
 			href="/">
 			FEFUDelivery
 			</Button>
-			<Button size="small" href="/admin-panel/">Заказчик</Button>
-			<Button size="small" href="/executorMainPage">Исполнитель</Button>
+			<Button size="small" href="order/Checkout">Оформить заказ</Button>
+			<Button size="small" href="/admin-panel/">Для заказчика</Button>
 		</Toolbar>
 		</Container>
 	</div>

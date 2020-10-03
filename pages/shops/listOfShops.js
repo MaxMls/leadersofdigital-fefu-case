@@ -7,11 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
 import { CardMedia } from "@material-ui/core";
 import apiCall from "../../scripts/api";
+import Link from "next/link";
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 	const {data} = await apiCall({url: "stores", method: "get"})
 	return {props: {jsonData: JSON.stringify(data)}}
 }
@@ -25,9 +25,9 @@ export default function listOfShops({jsonData}) {
       <div className='listOfShops'>
         <Container maxWidth="md">
           <Grid container spacing={5}>
-            {stores.map((store) => (
+            {stores.map((store, i) => (
               <Grid item xs={12} sm={6} md={4}>
-                <Card className='Card'>
+                <Card key={i} className='Card'>
                   <Grid
                       container
                       alignItems="center"
@@ -41,9 +41,13 @@ export default function listOfShops({jsonData}) {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary"> 
-                      Сделать покупки в {store.name}
-                    </Button>
+                    <Link href={'/shops/shopItems/' + store._id}>
+                      <a>
+                        <Button size="small" color="primary"> 
+                          Сделать покупки в {store.name}
+                        </Button>
+                      </a>
+                    </Link>
                   </CardActions>
                 </Card>
               </Grid>
