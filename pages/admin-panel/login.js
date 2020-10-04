@@ -72,7 +72,7 @@ export default function SignIn() {
 					onSubmit={(event) => {
 						event.preventDefault()
 
-						apiCall({method: 'post', url: 'admin-sign-in', data: {name, password}}).then(()=>{
+						apiCall({method: 'post', url: 'admin-sign-in', data: {name, password}}).then(() => {
 							router.push('/admin-panel/manage_products');
 						})
 
@@ -118,6 +118,19 @@ export default function SignIn() {
 					>
 						Вход
 					</Button>
+					<Link href='/'>
+						<a>
+							<Button
+								className={classes.submit}
+								type={'button'}
+								fullWidth
+								variant="contained"
+								color="default"
+							>
+								На основной сайт
+							</Button>
+						</a>
+					</Link>
 					{/*<Grid container>
 						<Grid item xs>
 							<Link href="#" variant="body2">
