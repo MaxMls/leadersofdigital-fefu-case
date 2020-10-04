@@ -15,7 +15,7 @@ const steps = ['Адресс доставки', 'Детали оплаты', 'П
 
 
 export default function Checkout({jsonData}) {
-	const [data, setData] = useState({products:[]})
+	const [data, setData] = useState({products: {}})
 
 	const router = useRouter()
 	const [activeStep, setActiveStep] = React.useState(0);
@@ -24,7 +24,7 @@ export default function Checkout({jsonData}) {
 		if (activeStep === steps.length - 1) {
 			const d = {
 				orderInfo: {...data, products: undefined},
-				products: data.products
+				products: data.products || {}
 			}
 			await apiCall({url: 'cart', data: d, method: 'post'})
 		}
@@ -37,12 +37,11 @@ export default function Checkout({jsonData}) {
 	};
 
 	useEffect(()=>{
-		console.log(data)
 	}, [data])
 
 
 	useEffect(()=>{
-		const products = JSON.parse(localStorage.getItem('productsCart'));
+		const products = JSON.parse(localStorage.getItem('productsCart')) || {};
 		setData({...data, products})
 	}, [])
 

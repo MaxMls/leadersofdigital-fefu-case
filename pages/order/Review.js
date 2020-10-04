@@ -36,7 +36,7 @@ export default function Review({data}) {
 					<Typography variant="h6" gutterBottom className={classes.title}>
 						Продукты
 					</Typography>
-					<Typography gutterBottom>{Object.entries(data.products).length}</Typography>
+					<Typography gutterBottom>{Object.entries(data.products || {}).length}</Typography>
 				</Grid>
 				<Grid item xs={12} sm={6}>
 					<Typography variant="h6" gutterBottom className={classes.title}>
