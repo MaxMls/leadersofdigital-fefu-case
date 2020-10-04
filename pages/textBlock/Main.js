@@ -15,13 +15,10 @@ export default function Main(props) {
       </Typography>
       <Divider />
       <Typography variant="h5" gutterBottom>
-        На данном макете можно посмотреть как будет выглядеть: 
+        Для тестирования доступны: 
       </Typography>
       <Typography variant="h6" gutterBottom>
-        список доступных магазинов и предоставленных ими товаров (Кнопка сверху 'Магазины');
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        офорление заказа (Кнопка сверху);
+        просмотр списка магазинов, выбор магазина и выбор его товаров, оформление заказа (Кнопка сверху 'Магазины');
       </Typography>
       <Typography variant="h6" gutterBottom>
         станица исполнителя заказа (Кнопка сверху 'Заказы');
