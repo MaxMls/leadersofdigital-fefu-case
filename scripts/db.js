@@ -21,6 +21,7 @@ if (!hasDb) {
 	const delivers = db.get('delivers')
 	const stores = db.get('stores')
 	const products = db.get('products')
+	const orders = db.get('orders')
 
 
 	const storage = thunkyp(async function () {
@@ -57,7 +58,8 @@ if (!hasDb) {
 				});
 				const uri = blockBlobClient.Uri.AbsoluteUri
 				console.log('uploaded:', uri)
-				return uri*/
+				return uri
+		*/
 
 		const matches = rawData.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
 		const type = matches[1];
@@ -67,7 +69,7 @@ if (!hasDb) {
 		console.log(res)
 	}
 
-	global[DB_KEY] = {db, users, admins, products, delivers, stores, uploadFile, id: monk.id}
+	global[DB_KEY] = {db, users, admins, orders, products, delivers, stores, uploadFile, id: monk.id}
 }
 
 // Create and freeze the singleton object so that it has an instance property.
