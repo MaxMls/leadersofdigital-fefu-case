@@ -15,11 +15,8 @@ export async function getServerSideProps(context) {
 	return {props: {jsonData: JSON.stringify(data)}}
 }
 
-const basket = [];
-
 export default function shopItems({jsonData}) {
 	const [data, setData] = useState(JSON.parse(jsonData))
-	const [set, setSet] = useState(JSON.parse(jsonData))
 	const products = data.products
 
 //	console.log(products)
@@ -32,14 +29,16 @@ export default function shopItems({jsonData}) {
 		let sum = 0
 		let weight = 0
 		let count = 0
+		let names = 0
 
 		productsCounter.forEach(([_id, [value, setValue]], i) => {
 			sum += products[i].cost * value
 			weight += products[i].weight * value
 			count += value
+			names++
 		})
 
-		return {sum, weight, count,}
+		return {sum, weight, count, names}
 	}
 
 	return (
@@ -53,10 +52,11 @@ export default function shopItems({jsonData}) {
 						justify="center"
 					>
 						<Grid item xs={3}>
-							<Typography gutterBottom align="left" variant="h6">
-								Общая сумма: {getSum().sum}<br/>
-								Общий вес: {getSum().weight}<br/>
-								Количество: {getSum().count}<br/>
+							<Typography gutterBottom align="left" >
+								Общая сумма: {getSum().sum} руб.<br/>
+								Общий вес: {getSum().weight} гр.<br/>
+								Количество: {getSum().count} шт.<br/>
+								Наименований: {getSum().names} тов.<br/>
 
 							</Typography>
 							<Button size="small" color="secondary" variant={"contained"} href="/order/Checkout">
