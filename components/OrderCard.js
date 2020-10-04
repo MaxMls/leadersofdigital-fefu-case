@@ -9,30 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) =>({
-	root: {
-		maxWidth: 500,
-	},
-	expand: {
-		transform: 'rotate(0deg)',
-		marginLeft: 'auto',
-		transition: theme.transitions.create('transform', {
-		  duration: theme.transitions.duration.shortest,
-	  }),
-	},
-	expandOpen: {
-		transform: 'rotate(180deg)',
-	},
-}));
 
 export default function OrderCard({title, order}) {
 
 	//const [open, setOpen] = useState(false)
 	const [expanded, setExpanded] = useState(false);
-
-	const classes = useStyles();
 
 	const handleExpandClick = () => {
 		setExpanded(!expanded)
@@ -40,7 +21,7 @@ export default function OrderCard({title, order}) {
 
 
 	return (
-		<Card className={classes.root}>
+		<Card className='root'>
 			<CardHeader title = {title}
 			subheader="Сегодня в 10:30" />
 			<CardContent>
@@ -56,14 +37,11 @@ export default function OrderCard({title, order}) {
 			</CardContent>
 			<CardActions disableSpacing>
 				<Button size="medium" color="primary" href="/">
-					{
-
-					}
 					Взять заказ!
 				</Button>
 				<IconButton
-					className={clsx(classes.expand, {
-						[classes.expandOpen]: expanded,
+					className={clsx('expand', {
+						['expandOpen']: expanded,
 					})}
 					onClick = {handleExpandClick}
 					aria-expanded = {expanded}

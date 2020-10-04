@@ -1,0 +1,13 @@
+.OrderCard {
+    .root {
+        max-width: 500;
+    }
+    .expand {
+        transform: rotate(0deg);
+        margin-left: auto;
+        transition: 0ms;
+    }
+    .expandOpen {
+        transform: rotate(180deg);
+    }
+}
