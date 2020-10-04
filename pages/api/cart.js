@@ -29,11 +29,10 @@ export default async function userHandler(req, res) {
 			}
 			set.products = []
 
-			Object.entries(body.products).map(([_id, count]) => {
-				const p = db.products.findOne({_id: db.id(_id)})
+			for (const [_id, count] of Object.entries(body.products)) {
+				const p = await db.products.findOne({_id: db.id(_id)})
 				set.products.push({...p, count})
-			})
-
+			}
 			await db.orders.insert(set)
 
 			res.status(200).json({status: 'ok'})
