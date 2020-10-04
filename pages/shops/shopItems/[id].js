@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import apiCall from "../../../scripts/api";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ProductCard from "../../../components/ProductCard";
+import {useRouter} from "next/router";
 
 export async function getServerSideProps(context) {
 	const {data} = await apiCall({url: "products", method: "get", data: {storeId: context.params.id}})
@@ -40,6 +41,7 @@ export default function shopItems({jsonData}) {
 
 		return {sum, weight, count, names}
 	}
+	const router = useRouter()
 
 	return (
 		<Page pageTitle='Товары'>
@@ -59,7 +61,20 @@ export default function shopItems({jsonData}) {
 								Наименований: {getSum().names} тов.<br/>
 
 							</Typography>
-							<Button size="small" color="secondary" variant={"contained"} href="/order/Checkout">
+							<Button
+								size="small"
+								color="secondary"
+								variant={"contained"}
+								onClick={() => {
+									const po = {}
+									productsCounter.forEach(([_id, [value, setValue]], i) => {
+										po[_id] = value
+									})
+
+									localStorage.setItem('productsCart', JSON.stringify(po));
+									router.push('/order/Checkout');
+								}}
+							>
 								<ShoppingBasketIcon/>
 								Оформить заказ
 							</Button>

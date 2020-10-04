@@ -1,11 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function AddressForm() {
+export default function AddressForm({onChange}) {
+
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [address1, setAddress1] = useState('')
+
+  useEffect(()=>{
+    onChange({firstName, lastName, address1})
+  }, [firstName, lastName, address1])
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -20,6 +29,8 @@ export default function AddressForm() {
             label="Имя"
             fullWidth
             autoComplete="given-name"
+            value={firstName}
+            onChange={({target})=> setFirstName(target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -30,6 +41,8 @@ export default function AddressForm() {
             label="Фамилия"
             fullWidth
             autoComplete="family-name"
+            value={lastName}
+            onChange={({target})=> setLastName(target.value)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -40,6 +53,8 @@ export default function AddressForm() {
             label="Адресс"
             fullWidth
             autoComplete="shipping address-line1"
+            value={address1}
+            onChange={({target})=> setAddress1(target.value)}
           />
         </Grid>
         <Grid item xs={12}>
