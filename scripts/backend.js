@@ -26,9 +26,9 @@ export async function signIn(modelName, name, password) {
 	let user = await db[modelName].findOne({name});
 
 	if (!user) { // Временная регистрация
-		//const hash = await bcrypt.hash(password, 10)
-		//const {insertedId} = await db[modelName].insert({name, hash})
-		//user = await db[modelName].findOne({_id: insertedId});
+		const hash = await bcrypt.hash(password, 10)
+		const {insertedId} = await db[modelName].insert({name, hash})
+		user = await db[modelName].findOne({_id: insertedId});
 	}
 
 	const token = jwt.sign({_id: user._id, model: modelName}, process.env.JWT_SECRET || "lol");
