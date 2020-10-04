@@ -29,10 +29,10 @@ export default function OrderCard({title, order}) {
 					Магазин: Самбери
 				</Typography>
 				<Typography>
-					Суммарная стоимость = {order.products.reduce((a, b) => a + b.cost, 0)} рублей
+					Суммарная стоимость = {order.products.reduce((a, b) => +a + b.cost, 0)} рублей
 				</Typography>
 				<Typography>
-					Суммарный вес = {order.products.reduce((a, b) => a + b.weight, 0)} грамм
+					Суммарный вес = {order.products.reduce((a, b) => +a + b.weight, 0)} грамм
 				</Typography>
 			</CardContent>
 			<CardActions disableSpacing>
