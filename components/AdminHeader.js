@@ -26,6 +26,11 @@ export default function AdminHeader() {
 							<Button color="inherit">Выход</Button>
 						</a>
 					</Link>
+					<Link href={'/'}>
+						<a>
+							<Button color="inherit">На главную</Button>
+						</a>
+					</Link>
 				</Toolbar>
 			</AppBar>
 		</div>
