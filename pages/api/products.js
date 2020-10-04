@@ -1,5 +1,15 @@
+import {defineUser, isAdmin} from "../../scripts/backend";
+
 const db = require('../../scripts/db').instance;
 
+
+export const config = {
+	api: {
+		bodyParser: {
+			sizeLimit: '5mb',
+		},
+	},
+}
 
 export default async function products(req, res) {
 	let {
@@ -7,8 +17,9 @@ export default async function products(req, res) {
 		method,
 	} = req;
 
-	let storeId = req.query.storeId || req.body.storeId
+	const model = await defineUser(req)
 
+	let storeId = req.query.storeId || req.body.storeId
 
 	const products_attr = [
 		{
@@ -39,6 +50,8 @@ export default async function products(req, res) {
 
 	switch (method) {
 		case 'POST':
+			if(!isAdmin(model)) return res.status(400)
+
 			const set = {name, company, cost, weight, category, storeId: db.id(storeId)}
 			//if (image) set.image = await db.uploadFile(image)
 			if (image) set.image = (image)
@@ -63,11 +76,10 @@ export default async function products(req, res) {
 			res.status(200).json({products, products_attr})
 			break
 		case 'DELETE':
+			if(!isAdmin(model)) return res.status(400)
 			await db.products.remove({_id})
 
 			res.status(200).json({status: 'ok'})
 			break
 	}
-
-
 }

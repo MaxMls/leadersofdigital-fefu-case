@@ -10,6 +10,7 @@ import TableBody from "@material-ui/core/TableBody";
 import apiCall from "../../scripts/api";
 import Row from "../../components/Row";
 import Link from "next/link";
+import AdminHeader from "../../components/AdminHeader";
 
 
 export async function getServerSideProps(context) {
@@ -29,7 +30,8 @@ export default function CollapsibleTable({jsonData}) {
 		setData(data)
 	}
 
-	return (
+	return <>
+		<AdminHeader/>
 		<div className='AdminPanel'>
 			<TableContainer component={Paper}>
 				<Table aria-label="collapsible table">
@@ -70,5 +72,5 @@ export default function CollapsibleTable({jsonData}) {
 				</Table>
 			</TableContainer>
 		</div>
-	);
+	</>
 }

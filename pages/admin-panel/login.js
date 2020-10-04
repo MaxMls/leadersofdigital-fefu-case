@@ -12,6 +12,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import apiCall from "../../scripts/api";
 import {useRouter} from "next/router";
+import AdminHeader from "../../components/AdminHeader";
 
 function Copyright() {
 	return (
@@ -54,7 +55,8 @@ export default function SignIn() {
 
 	const router = useRouter()
 
-	return (
+	return <>
+		<AdminHeader/>
 		<Container component="main" maxWidth="xs">
 			<CssBaseline/>
 			<div className={classes.paper}>
@@ -131,5 +133,5 @@ export default function SignIn() {
 				</form>
 			</div>
 		</Container>
-	);
+	</>
 }

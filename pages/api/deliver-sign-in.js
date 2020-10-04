@@ -2,6 +2,7 @@ import {setCookie, signIn} from "../../scripts/backend";
 
 const db = require('../../scripts/db').instance;
 
+
 export const config = {
 	api: {
 		bodyParser: {
@@ -10,7 +11,7 @@ export const config = {
 	},
 }
 
-export default async function userHandler(req, res) {
+export default async (req, res) => {
 	const {
 		body: {name, password},
 		method,
@@ -18,9 +19,10 @@ export default async function userHandler(req, res) {
 
 	switch (method) {
 		case 'POST':
-			const [token, user] = await signIn('admins', name, password)
+			const [token, user] = await signIn(db.delivers, name, password)
 
 			setCookie(res, 'token', token)
+
 			res.status(200).json({user: {name: user.name}})
 			break
 		default:

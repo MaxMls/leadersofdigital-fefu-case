@@ -1,3 +1,5 @@
+import {defineUser, isAdmin} from "../../scripts/backend";
+
 const db = require('../../scripts/db').instance;
 
 
@@ -21,8 +23,11 @@ export default async function stores(req, res) {
 		}
 	]
 
+	const model = await defineUser(req)
+
 	switch (method) {
 		case 'POST':
+			if (!isAdmin(model)) return res.status(400)
 			const set = {name}
 			//if (image) set.image = await db.uploadFile(image)
 			if (image) set.image = (image)
@@ -41,6 +46,7 @@ export default async function stores(req, res) {
 			res.status(200).json({stores, stores_attr})
 			break
 		case 'DELETE':
+			if (!isAdmin(model)) return res.status(400)
 			await db.stores.remove({_id})
 
 			res.status(200).json({status: 'ok'})
