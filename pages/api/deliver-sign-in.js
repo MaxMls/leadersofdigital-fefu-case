@@ -19,7 +19,7 @@ export default async (req, res) => {
 
 	switch (method) {
 		case 'POST':
-			const [token, user] = await signIn(db.delivers, name, password)
+			const [token, user] = await signIn('delivers', name, password)
 
 			setCookie(res, 'token', token)
 

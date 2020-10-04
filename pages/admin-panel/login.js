@@ -66,6 +66,9 @@ export default function SignIn() {
 				<Typography component="h1" variant="h5">
 					Войти в админ-панель
 				</Typography>
+				<Typography>
+					Тестовый логин: admin пароль: b7%^Vytvt*^C463
+				</Typography>
 				<form
 					className={classes.form}
 					noValidate
