@@ -13,19 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        FefuDelivery
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -80,10 +68,15 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
+  const router = useRouter()
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      router.push('/executorMainPage')
+    }
+
     setActiveStep(activeStep + 1);
   };
 
@@ -138,7 +131,6 @@ export default function Checkout() {
             )}
           </React.Fragment>
         </Paper>
-        <Copyright />
       </main>
     </React.Fragment>
   );
