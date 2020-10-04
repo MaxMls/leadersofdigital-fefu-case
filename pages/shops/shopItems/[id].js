@@ -35,7 +35,7 @@ export default function shopItems({jsonData}) {
 			sum += products[i].cost * value
 			weight += products[i].weight * value
 			count += value
-			names++
+			names += value ? 1 : 0
 		})
 
 		return {sum, weight, count, names}
@@ -52,7 +52,7 @@ export default function shopItems({jsonData}) {
 						justify="center"
 					>
 						<Grid item xs={3}>
-							<Typography gutterBottom align="left" >
+							<Typography gutterBottom align="left">
 								Общая сумма: {getSum().sum} руб.<br/>
 								Общий вес: {getSum().weight} гр.<br/>
 								Количество: {getSum().count} шт.<br/>
