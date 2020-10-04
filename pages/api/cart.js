@@ -1,4 +1,5 @@
 import {defineUser} from "../../scripts/backend";
+import apiCall from "../../scripts/api";
 
 const db = require('../../scripts/db').instance;
 
@@ -9,8 +10,19 @@ export default async function userHandler(req, res) {
 		method,
 	} = req;
 
-	const model = await defineUser(req);
+	const cart = {
+		orderInfo:{
+			// тут информация о карте, номере пользователя, адресе и т.д
+		},
+		products:{  /// hng745f9483: 4 // 4 продукта с _id === hng745f9483
+			mh3428mtvh85320: 6,
+			mh28mtefevh85320: 45,
+		}
+	}
 
+	await apiCall({url: 'cart', method: 'post', data: cart})
+
+	const model = await defineUser(req);
 	switch (method) {
 
 		case 'GET':
