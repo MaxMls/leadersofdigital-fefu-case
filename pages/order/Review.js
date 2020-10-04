@@ -3,13 +3,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-	{name: 'Card type', detail: 'Visa'},
-	{name: 'Card holder', detail: 'Mr John Smith'},
-	{name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234'},
-	{name: 'Expiry date', detail: '04/2024'},
-];
 
 const useStyles = makeStyles((theme) => ({
 	listItem: {
@@ -23,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function Review({data}) {
+export default function Review({data = {}}) {
 	const classes = useStyles();
 
 	return (
@@ -36,7 +29,6 @@ export default function Review({data}) {
 					<Typography variant="h6" gutterBottom className={classes.title}>
 						Продукты
 					</Typography>
-					<Typography gutterBottom>{Object.entries(data.products || {}).length}</Typography>
 				</Grid>
 				<Grid item xs={12} sm={6}>
 					<Typography variant="h6" gutterBottom className={classes.title}>
