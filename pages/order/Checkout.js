@@ -15,43 +15,6 @@ import PaymentForm from './PaymentForm';
 import Review from './Review';
 import { useRouter } from 'next/router'
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-  },
-  paper: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    padding: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-      marginTop: theme.spacing(6),
-      marginBottom: theme.spacing(6),
-      padding: theme.spacing(3),
-    },
-  },
-  stepper: {
-    padding: theme.spacing(3, 0, 5),
-  },
-  buttons: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
-  },
-}));
-
 const steps = ['Адресс доставки', 'Детали оплаты', 'Проверка заказа'];
 
 function getStepContent(step) {
@@ -69,7 +32,6 @@ function getStepContent(step) {
 
 export default function Checkout() {
   const router = useRouter()
-  const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -86,13 +48,13 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
+      <div className='Checkout'>
+      <main className='layout'>
+        <Paper className='paper'>
           <Typography component="h1" variant="h4" align="center">
             Оформление заказа
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper activeStep={activeStep} className='stepper'>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -112,9 +74,9 @@ export default function Checkout() {
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
-                <div className={classes.buttons}>
+                <div className='buttons'>
                   {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
+                    <Button onClick={handleBack} className='button'>
                       Назад
                     </Button>
                   )}
@@ -122,7 +84,7 @@ export default function Checkout() {
                     variant="contained"
                     color="primary"
                     onClick={handleNext}
-                    className={classes.button}
+                    className='button'
                   >
                     {activeStep === steps.length - 1 ? 'Создать заказ' : 'Далее'}
                   </Button>
@@ -132,6 +94,7 @@ export default function Checkout() {
           </React.Fragment>
         </Paper>
       </main>
+      </div>
     </React.Fragment>
   );
 }

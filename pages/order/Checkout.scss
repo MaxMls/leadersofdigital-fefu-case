@@ -1,0 +1,23 @@
+.Checkout {
+    .layout {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .paper {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        padding: 12px;
+    }
+    .stepper {
+        padding: 15px;
+    }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .button {
+        margin-top: 12px;
+        margin-left: 4px;
+    }
+}
