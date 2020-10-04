@@ -15,7 +15,7 @@ const steps = ['Адресс доставки', 'Детали оплаты', 'П
 
 
 export default function Checkout({jsonData}) {
-	const [data, setData] = useState({})
+	const [data, setData] = useState({products:[]})
 
 	const router = useRouter()
 	const [activeStep, setActiveStep] = React.useState(0);
