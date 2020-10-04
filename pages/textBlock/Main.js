@@ -24,7 +24,7 @@ export default function Main(props) {
         офорление заказа (Кнопка сверху);
       </Typography>
       <Typography variant="h6" gutterBottom>
-        станица исполнителя заказа (Кнопка сверху 'Для исполнителя');
+        станица исполнителя заказа (Кнопка сверху 'Заказы');
       </Typography>
       <Typography variant="h6" gutterBottom>
         станица заказчика (Админ-панель) (Кнопка сверху 'Для заказчика').
