@@ -1,5 +1,4 @@
 import {defineUser} from "../../scripts/backend";
-import apiCall from "../../scripts/api";
 
 const db = require('../../scripts/db').instance;
 
@@ -9,9 +8,9 @@ export default async function userHandler(req, res) {
 		body: {cart},
 		method,
 	} = req;
-	
 
-	const model = await defineUser(req);
+
+	//const model = await defineUser(req);
 	switch (method) {
 
 		case 'GET':
@@ -40,7 +39,7 @@ export default async function userHandler(req, res) {
 			res.status(200).json({status: 'ok'})
 			break
 		default:
-			res.setHeader('Allow', ['POST'])
+			res.setHeader('Allow', ['POST', 'PUT', 'GET'])
 			res.status(405).end(`Method ${method} Not Allowed`)
 	}
 }
