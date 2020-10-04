@@ -73,6 +73,9 @@ export default function Checkout({jsonData}) {
 									<Typography variant="subtitle1">
 										Номер вашего заказа #2001539. На ваш email будет выслана подробная информация по заказу.
 									</Typography>
+									<Button variant="subtitle1" href='/executorMainPage'>
+										Прейти на страницу заказов
+									</Button>
 								</React.Fragment>
 							) : (
 								<React.Fragment>
